@@ -5,10 +5,9 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "expense_table")
 public class Expense {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "expense_id") // match DB column
+    @Column(name = "expense_id")
     private int id;
 
     private String title;
@@ -16,17 +15,6 @@ public class Expense {
     private double amount;
     private String date;
     private String notes;
-
-    // Constructors
-    public Expense() {}
-
-    public Expense(String title, String category, double amount, String date, String notes) {
-        this.title = title;
-        this.category = category;
-        this.amount = amount;
-        this.date = date;
-        this.notes = notes;
-    }
 
     // Getters & Setters
     public int getId() { return id; }
