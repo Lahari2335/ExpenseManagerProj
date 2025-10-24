@@ -7,7 +7,7 @@ import com.klef.dev.entity.Expense;
 import com.klef.dev.repository.ExpenseRepository;
 
 @Service
-public class ExpenseServiceImpl {
+public class ExpenseServiceImpl implements ExpenseService {
 
     @Autowired
     private ExpenseRepository repository;
@@ -18,5 +18,17 @@ public class ExpenseServiceImpl {
 
     public List<Expense> getAllExpenses() {
         return repository.findAll();
+    }
+
+    public Expense updateExpense(Expense expense) {
+        return repository.save(expense);
+    }
+
+    public void deleteExpense(int id) {
+        repository.deleteById(id);
+    }
+
+    public List<Expense> searchExpenses(String keyword) {
+        return repository.searchExpenses(keyword);
     }
 }
